@@ -1,4 +1,4 @@
-module github.com/xhos/null-mcp
+module github.com/xhos/nagomi-mcp
 
 go 1.25.5
 

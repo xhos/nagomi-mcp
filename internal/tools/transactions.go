@@ -7,7 +7,7 @@ import (
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
 
-	pb "github.com/xhos/null-mcp/internal/gen/null/v1"
+	pb "github.com/xhos/nagomi-mcp/internal/gen/nagomi/v1"
 )
 
 func (h *Handler) registerTransactions(s *server.MCPServer) {

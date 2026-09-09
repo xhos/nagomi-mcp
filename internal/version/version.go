@@ -6,8 +6,8 @@ import (
 )
 
 const (
-	RepoName = "null-mcp"
-	RepoURL  = "https://github.com/xhos/null-mcp"
+	RepoName = "nagomi-mcp"
+	RepoURL  = "https://github.com/xhos/nagomi-mcp"
 )
 
 var (

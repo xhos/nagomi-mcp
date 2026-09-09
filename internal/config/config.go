@@ -9,8 +9,8 @@ import (
 )
 
 type Config struct {
-	NullCoreURL string
-	APIKey      string
+	NagomiCoreURL string
+	APIKey        string
 
 	UserID        uuid.UUID
 	ListenAddress string
@@ -30,43 +30,43 @@ func parseAddress(s string) string {
 }
 
 func Load() Config {
-	nullCoreURL := os.Getenv("NULL_CORE_URL")
-	if nullCoreURL == "" {
-		panic("NULL_CORE_URL environment variable is required")
+	nagomiCoreURL := os.Getenv("NAGOMI_CORE_URL")
+	if nagomiCoreURL == "" {
+		panic("NAGOMI_CORE_URL environment variable is required")
 	}
 
-	apiKey := os.Getenv("NULL_API_KEY")
+	apiKey := os.Getenv("NAGOMI_API_KEY")
 	if apiKey == "" {
-		panic("NULL_API_KEY environment variable is required")
+		panic("NAGOMI_API_KEY environment variable is required")
 	}
 
-	userID := os.Getenv("NULL_MCP_USER_ID")
+	userID := os.Getenv("NAGOMI_MCP_USER_ID")
 	if userID == "" {
-		panic("NULL_MCP_USER_ID environment variable is required")
+		panic("NAGOMI_MCP_USER_ID environment variable is required")
 	}
 
-	baseURL := strings.TrimRight(os.Getenv("NULL_MCP_BASE_URL"), "/")
+	baseURL := strings.TrimRight(os.Getenv("NAGOMI_MCP_BASE_URL"), "/")
 	if baseURL == "" {
-		panic("NULL_MCP_BASE_URL environment variable is required")
+		panic("NAGOMI_MCP_BASE_URL environment variable is required")
 	}
 
-	listenAddress := os.Getenv("NULL_MCP_LISTEN_ADDRESS")
+	listenAddress := os.Getenv("NAGOMI_MCP_LISTEN_ADDRESS")
 	if listenAddress == "" {
 		listenAddress = "127.0.0.1:55553"
 	}
 
-	logLevel, err := log.ParseLevel(os.Getenv("NULL_MCP_LOG_LEVEL"))
+	logLevel, err := log.ParseLevel(os.Getenv("NAGOMI_MCP_LOG_LEVEL"))
 	if err != nil {
 		logLevel = log.InfoLevel
 	}
 
-	logFormat := strings.ToLower(strings.TrimSpace(os.Getenv("NULL_MCP_LOG_FORMAT")))
+	logFormat := strings.ToLower(strings.TrimSpace(os.Getenv("NAGOMI_MCP_LOG_FORMAT")))
 	if logFormat != "json" {
 		logFormat = "text"
 	}
 
 	return Config{
-		NullCoreURL:   nullCoreURL,
+		NagomiCoreURL: nagomiCoreURL,
 		APIKey:        apiKey,
 		UserID:        uuid.MustParse(userID),
 		ListenAddress: parseAddress(listenAddress),

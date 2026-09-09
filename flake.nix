@@ -33,7 +33,7 @@
 
     packages = forAllSystems (pkgs: {
       default = pkgs.buildGoModule {
-        pname = "null-mcp";
+        pname = "nagomi-mcp";
         version = self.shortRev or self.dirtyShortRev or "dev";
 
         src = ./.;
@@ -41,7 +41,7 @@
         vendorHash = "sha256-If9j2lxrZPatKK11Lc670kC0ypjE8uL9iTyCOXVTVSc=";
 
         ldflags = let
-          pkg = "github.com/xhos/null-mcp/internal/version";
+          pkg = "github.com/xhos/nagomi-mcp/internal/version";
           ver = self.shortRev or self.dirtyShortRev or "dev";
         in [
           "-X ${pkg}.Version=${ver}"

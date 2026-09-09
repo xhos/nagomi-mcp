@@ -7,25 +7,25 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/xhos/null-mcp/internal/gen/null/v1/nullv1connect"
+	"github.com/xhos/nagomi-mcp/internal/gen/nagomi/v1/nagomiv1connect"
 )
 
 // Handler holds the Connect RPC clients and registers all MCP tools.
 type Handler struct {
 	userID    string
-	accounts  nullv1connect.AccountServiceClient
-	txns      nullv1connect.TransactionServiceClient
-	cats      nullv1connect.CategoryServiceClient
-	dashboard nullv1connect.DashboardServiceClient
+	accounts  nagomiv1connect.AccountServiceClient
+	txns      nagomiv1connect.TransactionServiceClient
+	cats      nagomiv1connect.CategoryServiceClient
+	dashboard nagomiv1connect.DashboardServiceClient
 	log       *log.Logger
 }
 
 func New(
 	userID string,
-	accounts nullv1connect.AccountServiceClient,
-	txns nullv1connect.TransactionServiceClient,
-	cats nullv1connect.CategoryServiceClient,
-	dashboard nullv1connect.DashboardServiceClient,
+	accounts nagomiv1connect.AccountServiceClient,
+	txns nagomiv1connect.TransactionServiceClient,
+	cats nagomiv1connect.CategoryServiceClient,
+	dashboard nagomiv1connect.DashboardServiceClient,
 	log *log.Logger,
 ) *Handler {
 	return &Handler{
